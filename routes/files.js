@@ -1,21 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const fs = require("fs");
-const http = require("http");
-const fetch = require("node-fetch");
-const bp = require("body-parser");
-var toJSON = require("plain-text-data-to-json");
-
-// router.use(express.static("public"));
+const axios = require("axios");
 
 router.get("/data/", async (req, res) => {
   try {
     const n = parseInt(req.query.n, 10);
     console.log(n);
 
-    const response = await fetch("https://terriblytinytales.com/test.txt");
-    const text_res = await response.text();
+    const response = await axios.get("https://terriblytinytales.com/test.txt");
+    const text_res = response.data;
     var array = text_res.toString().split("\n");
 
     var freq = {};
