@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@szmarczak/http-timer": "github:szmarczak/http-timer",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
