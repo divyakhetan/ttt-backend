@@ -2,7 +2,7 @@
   "name": "ttt",
   "version": "1.0.0",
   "engines": {
-    "node": "10.13.0"
+    "node": "10.15.1"
   },
   "description": "",
   "main": "index.js",
