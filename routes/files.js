@@ -4,7 +4,7 @@ const axios = require("axios");
 
 router.get("/data/", async (req, res) => {
   try {
-    const n = parseInt(req.query.n, 10);
+    var n = parseInt(req.query.n, 10);
     console.log(n);
 
     const response = await axios.get("https://terriblytinytales.com/test.txt");
@@ -32,22 +32,45 @@ router.get("/data/", async (req, res) => {
         }
       }
     }
+
+    var max_length = Object.keys(freq).length;
     var freq_sorted = Object.entries(freq).sort(function (a, b) {
       return b[1] - a[1];
     });
 
     freq_json = [];
 
+    var temp;
+    if (n > max_length) {
+      temp = n;
+      n = max_length;
+    }
+
     for (i = 0; i < n; i++) {
       freq_json.push({ word: freq_sorted[i][0], count: freq_sorted[i][1] });
     }
 
     console.log(freq_json);
-    if (n < 0) res.json({ success: false, message: "n should be > 0" });
-    res.json({ data: freq_json, success: true });
+
+    if (temp > max_length) {
+      res.json({
+        success: true,
+        message: "n exceeds the total number of words",
+        data: freq_json,
+      });
+    } else if (n < 0) {
+      res.json({
+        data: freq_json,
+        success: false,
+        message: "Error! n should be > 0",
+      });
+    } else {
+      var msg = "The " + n + " freq occuring words are";
+      res.json({ data: freq_json, success: true, message: msg });
+    }
   } catch (error) {
     console.log("error ", error);
-    res.json({ success: false, message: "internal server error" });
+    res.json({ data: {}, success: false, message: "internal server error" });
   }
 });
 module.exports = router;
