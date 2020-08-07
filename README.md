@@ -21,15 +21,15 @@ The final sorted JSON object is in this format:
 The following cases are considered: 
 1. n < 0 - returns success = false
 
-![Image of n=-4](https://dl.dropbox.com/s/2xeon4qej3ktym7/pic2.JPG?dl=0)
+![Image of n=-4](https://dl.dropbox.com/s/grcqpeobyre6aob/pic1.JPG?dl=0)
 
 2. n > 0 and n < max_number_of words - returns sucess = true and the array
 
-![Image of n=5](https://dl.dropbox.com/s/fhoavl39tibdtrc/pic1.JPG?dl=0)
+![Image of n=5](https://dl.dropbox.com/s/yls92qjitk8pnp3/pic2.JPG?dl=0)
 
 3. n > max_number_of_words - returns the array of size max_number_of_words.
 
-![Image of n=585](https://dl.dropbox.com/s/tx5mpj8ihbbou3c/pic3.JPG?dl=0)
+![Image of n=555](https://dl.dropbox.com/s/tx5mpj8ihbbou3c/pic3.JPG?dl=0)
 
 
 
