@@ -43,6 +43,7 @@ router.get("/data/", async (req, res) => {
     }
 
     console.log(freq_json);
+    if (n < 0) res.json({ success: false, message: "n should be > 0" });
     res.json({ data: freq_json, success: true });
   } catch (error) {
     console.log("error ", error);
